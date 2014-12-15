@@ -34,17 +34,17 @@ public class Search {
     public static SearchListResponse search(String queryTerm) {
 
         try {
-            YouTube.Search.List search = youtube.search().list("id,snippet");
-            search.setKey(apiKey);
-            search.setQ(queryTerm);
-            search.setType("video");
-            search.setFields("items(id(videoId),snippet(title,description,thumbnails/default/url))");
-            search.setMaxResults(Long.valueOf(SearchSetting.getInstance().getMaxResults()));
-            search.setOrder(SearchSetting.getInstance().getOrder());
-            search.setSafeSearch(SearchSetting.getInstance().getSafeSearch());
-            search.setVideoDefinition(SearchSetting.getInstance().getVideoDefinition());
-            search.setVideoDuration(SearchSetting.getInstance().getVideoDuration());
-            search.setVideoType(SearchSetting.getInstance().getVideoType());
+            YouTube.Search.List search = youtube.search().list("id,snippet")
+                    .setKey(apiKey)
+                    .setQ(queryTerm)
+                    .setType("video")
+                    .setFields("items(id(videoId),snippet(title,description,thumbnails/default/url))")
+                    .setMaxResults(Long.valueOf(SearchSetting.getInstance().getMaxResults()))
+                    .setOrder(SearchSetting.getInstance().getOrder())
+                    .setSafeSearch(SearchSetting.getInstance().getSafeSearch())
+                    .setVideoDefinition(SearchSetting.getInstance().getVideoDefinition())
+                    .setVideoDuration(SearchSetting.getInstance().getVideoDuration())
+                    .setVideoType(SearchSetting.getInstance().getVideoType());
             return search.execute();
         } catch (GoogleJsonResponseException e) {
             LogUtil.d("There was a service error: " + e.getDetails().getCode() + " : " + e.getDetails().getMessage());

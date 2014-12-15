@@ -21,8 +21,12 @@ public class SearchSetting {
 
     public String getMaxResults() {
         if (maxResults == null)
-            maxResults = PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.MAXRESULTS, "20");
+            maxResults = getMaxResultsFromPre();
         return maxResults;
+    }
+
+    public static String getMaxResultsFromPre() {
+        return PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.MAXRESULTS, "20");
     }
 
     public String getOrder() {
@@ -31,10 +35,18 @@ public class SearchSetting {
         return order;
     }
 
+    public static String getOrderFromPre() {
+        return PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.ORDER, "relevance");
+    }
+
     public String getSafeSearch() {
         if (safeSearch == null)
             safeSearch = PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.SAFESEARCH, "none");
         return safeSearch;
+    }
+
+    public static String getSafeSearchFromPre() {
+        return PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.SAFESEARCH, "none");
     }
 
     public String getVideoDefinition() {
@@ -43,16 +55,28 @@ public class SearchSetting {
         return videoDefinition;
     }
 
+    public static String getVideoDefinitionFromPre() {
+        return PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.VIDEODEFINITION, "any");
+    }
+
     public String getVideoDuration() {
         if (videoDuration == null)
             videoDuration = PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.VIDEODURATION, "any");
         return videoDuration;
     }
 
+    public static String getVideoDurationFromPre() {
+        return PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.VIDEODURATION, "any");
+    }
+
     public String getVideoType() {
         if (videoType == null)
             videoType = PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.VIDEOTYPE, "any");
         return videoType;
+    }
+
+    public static String getVideoTypeFromPre() {
+        return PreferenceManager.getDefaultSharedPreferences(GlobalApplication.getInstance()).getString(SearchSetingFragment.VIDEOTYPE, "any");
     }
 
     public void setMaxResults(String maxResults) {

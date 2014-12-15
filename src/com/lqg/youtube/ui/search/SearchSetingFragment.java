@@ -130,27 +130,27 @@ public class SearchSetingFragment extends PreferenceFragment implements SharedPr
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(MAXRESULTS)) {
-            String value = sharedPreferences.getString(key, "20");
+            String value = SearchSetting.getMaxResultsFromPre();
             getPreferenceScreen().findPreference(MAXRESULTS).setSummary(value);
             SearchSetting.getInstance().setMaxResults(value);
         } else if (key.equals(ORDER)) {
-            String value = sharedPreferences.getString(key, "relevance");
+            String value = SearchSetting.getOrderFromPre();
             getPreferenceScreen().findPreference(ORDER).setSummary(value);
             SearchSetting.getInstance().setOrder(value);
         } else if (key.equals(SAFESEARCH)) {
-            String value = sharedPreferences.getString(key, "none");
+            String value = SearchSetting.getSafeSearchFromPre();
             getPreferenceScreen().findPreference(SAFESEARCH).setSummary(value);
             SearchSetting.getInstance().setSafeSearch(value);
         } else if (key.equals(VIDEODEFINITION)) {
-            String value = sharedPreferences.getString(key, "any");
+            String value = SearchSetting.getVideoDefinitionFromPre();
             getPreferenceScreen().findPreference(VIDEODEFINITION).setSummary(value);
             SearchSetting.getInstance().setVideoDefinition(value);
         } else if (key.equals(VIDEODURATION)) {
-            String value = sharedPreferences.getString(key, "any");
+            String value = SearchSetting.getVideoDurationFromPre();
             getPreferenceScreen().findPreference(VIDEODURATION).setSummary(value);
             SearchSetting.getInstance().setVideoDuration(value);
         } else if (key.equals(VIDEOTYPE)) {
-            String value = sharedPreferences.getString(key, "any");
+            String value = SearchSetting.getVideoTypeFromPre();
             getPreferenceScreen().findPreference(VIDEOTYPE).setSummary(value);
             SearchSetting.getInstance().setVideoType(value);
         }

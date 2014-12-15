@@ -56,6 +56,11 @@
             android:defaultValue="any"
             android:summary="%s" />
 
+        <EditTextPreference
+            android:summary="beta0.2"
+            android:title="Version"
+            android:enabled="false"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>
